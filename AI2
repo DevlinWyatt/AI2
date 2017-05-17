@@ -178,12 +178,12 @@ public class AI2 {
             maxWordSize = longWord;
         }
 
-        //Creates an array of compatible word lengths
-        int[] compatibleWordLengths = new int[maxWordSize];
+        //Creates an array of compatible word lengths.
+        boolean[] compatibleWordLengths = new boolean[maxWordSize];
         for (int i = 0; i < wordList.length; i++) {
             for (int j = 0; j < compatibleWordLengths.length; j++) {
                 if (wordList[i].length() == j + 1) {
-                    compatibleWordLengths[j] = 1;
+                    compatibleWordLengths[j] = true;
                 }
             }
         }
@@ -198,7 +198,7 @@ public class AI2 {
             do {
                 thisWordLength = AiWordLength();
                 for (int i = 0; i < compatibleWordLengths.length; i++) {
-                    if (i + 1 == thisWordLength && compatibleWordLengths[i] != 0) {
+                    if (i + 1 == thisWordLength && compatibleWordLengths[i] == true) {
                         lengthOK = true;
                     }
                 }
