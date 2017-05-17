@@ -32,7 +32,7 @@ public class AI2 {
     //This method deconstructs the user's String.
     public static void UserInput() {
         // User input String.
-        userInput = "hmmmm hmmmm";
+        userInput = "hmmm hmmmmmmmm";
 
         //Converts userInput to lower case for ease of use.
         userInput = userInput.toLowerCase();
@@ -97,7 +97,7 @@ public class AI2 {
 
         int topRank;
         int totalRank = 0;
-        topRank = maxWordSize - avgWordSize + 1;
+        topRank = maxWordSize+1;
 
         //Min to max word range
         int[] rank = new int[maxWordSize];
@@ -105,7 +105,7 @@ public class AI2 {
 
         //Associates the word size with its rank and finds the sum of all ranks.
         for (int i = 0; i < rank.length; i++) {
-            rank[i] = topRank - Math.abs(avgWordSize - i - 1);
+            rank[i] = Math.abs(Math.abs(i-avgWordSize)-topRank);
             totalRank += rank[i];
         }
 
