@@ -23,7 +23,6 @@ public class AI2 {
     private static final int[] letterPercent = new int[93];
 
     public static void main(String[] args) throws IOException {
-        UserInput();
         System.out.println(AiString());
     }
 
@@ -34,7 +33,7 @@ public class AI2 {
         int wordCount = 0;
 
         // User input String.
-        userInput = "This is just a test String to get things rolling.";
+        userInput = "The best day I ever had at school was the day I met you.";
 
         //Converts userInput to lower case for ease of use.
         userInput = userInput.toLowerCase();
@@ -155,8 +154,9 @@ public class AI2 {
         return (char) (random.nextInt(93) + 33);
     }
 
-    //This method creates a string of words
+    //This method creates a string of words.
     public static String AiString() throws IOException {
+        UserInput();
         String aiString = "";
         int aiStringLength = 0;
 
@@ -173,7 +173,7 @@ public class AI2 {
             }
         }
 
-        //reduces maxWordSize to the longest word found.
+        //Reduces maxWordSize to the longest word found.
         if (maxWordSize > longWord) {
             maxWordSize = longWord;
         }
@@ -219,17 +219,32 @@ public class AI2 {
                                 compatible = true;
                             }
                         }
-                    } else if (compatible == true) {
+                    }
+                    if (compatible == true) {
                         break;
-                    } else if (i == wordList.length - 1) {
+                    }
+                    if (i == wordList.length - 1) {
                         j--;
                         break;
                     }
                 }
             }
-            aiWord = new String(currentWord); //Converts currentWord to a String
-            aiString = aiString + aiWord + " "; //Combines the Strings
-            aiStringLength = aiStringLength + thisWordLength;//Tracks the string length
+            //Converts currentWord to a String
+            aiWord = new String(currentWord);
+
+            //Capitalizes 'i'
+            if (aiWord.equalsIgnoreCase("i")) {
+                aiWord = aiWord.toUpperCase();
+            }
+
+            //Combines the Strings
+            aiString = aiString + aiWord + " ";
+
+            //Capitalizes the first letter of the String
+            aiString = aiString.substring(0, 1).toUpperCase() + aiString.substring(1);
+
+            //Tracks the string length
+            aiStringLength = aiStringLength + thisWordLength;
         }
         return aiString;
     }
