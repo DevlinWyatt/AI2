@@ -10,7 +10,7 @@ import java.util.Random;
 import toolbox.*;
 
 /**
- * @author Devlin Wyatt
+ * @author Debrah Wyatt
  */
 public class AI2 {
 
